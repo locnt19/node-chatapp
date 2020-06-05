@@ -25,7 +25,6 @@ exports.register = async (req, res) => {
       password: sha256(password + process.env.SALT)
     })
     await newUser.save();
-    // res.status(201); //api
     res.render('login.pug', { title: 'Login page', message: 'Created. Please login.' });
   } catch (error) {
     res.render('register.pug', { title: 'Register page', message: error })
@@ -39,11 +38,11 @@ exports.login = async (req, res) => {
       email,
       password: sha256(password + process.env.SALT)
     });
-    console.log(user)
+    // console.log(user);
     if (!user) throw 'Email or password did not match.';
-    const token = jwt.sign({ id: user.id }, process.env.SECRETKEY);
-    res.cookie('auth', token, { signed: true, maxAge: 60 * 1000 });
-    res.render('index.pug', { title: 'Index(Logged)', message: 'Logged successfully' });
+    const token = jwt.sign({ id: user._id, name: user.name }, process.env.SECRETKEY);
+    res.cookie('auth', token, { signed: true, maxAge: 60 * 60 * 1000 });
+    res.redirect('/');
   } catch (error) {
     res.render('login.pug', { title: 'Login page', message: error });
   }

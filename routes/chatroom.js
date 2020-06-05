@@ -3,7 +3,7 @@ const auth = require('../middleware/authorization');
 
 /* GET chatroom page. */
 router.get('/', auth, function (req, res, next) {
-  res.send('Authorization.')
+  res.render('chatroom.pug', { title: 'chatroom' });
 });
 
 module.exports = router;

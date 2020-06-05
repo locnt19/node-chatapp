@@ -6,7 +6,16 @@ module.exports = async (req, res, next) => {
       res.redirect('/user/login');
       return;
     }
-    // const payload = await jwt.verify(token, process.env.SECRETKEY)
+    const token = req.signedCookies.auth;
+    const user = await jwt.verify(token, process.env.SECRETKEY);
+    // console.log('signedCookies: ' + token);
+    // console.log('token decoded: ' + user);
+    
+    res.locals.user = {
+      id: user.id,
+      name: user.name
+    };
+    console.log(res.locals.user);
     next()
   } catch (err) {
     res.status(403).send('Unauthorized!')

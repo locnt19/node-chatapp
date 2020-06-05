@@ -2,3 +2,57 @@ body
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
 a
   color: #00B7FF
+.material-icons
+  font-size: 14px  
+.chat
+  &-message
+    &__avatar
+      width: 32px
+      height: 32px
+      border-radius: 999px
+      margin-right: 0.5rem
+    &__text
+      max-width: 75%
+      padding: 0
+      margin: 0
+      list-style: none
+      &__item
+        span
+          display: inline-block
+          color: #333
+          background: #f1f0f0
+          padding: .5rem .75rem
+          border-radius: .5rem 2rem 2rem 0
+        + .chat-message__text__item
+          margin-top: 4px
+          span
+            border-top-left-radius: 0
+            border-bottom-left-radius: 0
+        &:last-of-type
+          span
+            border-bottom-left-radius: .5rem
+    &__item
+      margin-bottom: 1rem
+      display: flex
+      align-items: flex-start
+      &.send
+        flex-direction: row-reverse
+        text-align: right
+        .chat-message__avatar
+          margin-left: 0.5rem
+          margin-right: 0
+        .chat-message__text__item
+          align-self: self-end
+          span
+            color: #fff
+            background: #44bec7
+            border-radius: 2rem .5rem 0 2rem
+          + .chat-message__text__item
+            span
+              border-top-right-radius: 0
+              border-bottom-right-radius: 0
+          &:last-of-type
+            span
+              border-bottom-right-radius: .5rem
+  &-user__status.online
+    color: #28a745

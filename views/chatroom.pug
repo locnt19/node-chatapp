@@ -1,0 +1,64 @@
+extends layout
+
+block content
+  .chat-container.container-fluid.py-4
+    .row
+      .col-3
+        ul.list-group.chat-list__online
+          -for(var i = 0; i < 5; i++)
+            li.list-group-item.p-2
+              .media
+                img.mr-2(src=`https://api.adorable.io/avatars/48/${i}.png` alt="avatar.png")
+                .media-body
+                  span username #{i}
+                  span.chat-user__status.online.float-right.material-icons fiber_manual_record
+
+      .col-9
+        ul.chat-message__list.list-unstyled.border.p-4.m-0
+          li.chat-message__item
+            img.chat-message__avatar(src="https://api.adorable.io/avatars/40/avatar.png" alt="avatar.png")
+            ul.chat-message__text
+              li.chat-message__text__item
+                span Lorem, ipsum.
+              li.chat-message__text__item
+                span Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus saepe non omnis sit tempore nobis, iste facere eligendi perferendis molestias.
+              li.chat-message__text__item
+                span Lorem ipsum dolor sit amet.
+          li.chat-message__item
+            img.chat-message__avatar(src="https://api.adorable.io/avatars/40/avatar.png" alt="avatar.png")
+            ul.chat-message__text
+              li.chat-message__text__item
+                span Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, reiciendis.
+              li.chat-message__text__item
+                span Lorem ipsum dolor
+              li.chat-message__text__item
+                span Lorem ipsum dolor sit amet, consectetur
+          li.chat-message__item
+            img.chat-message__avatar(src="https://api.adorable.io/avatars/40/avatar.png" alt="avatar.png")
+            ul.chat-message__text
+              li.chat-message__text__item
+                span Lorem ipsum dolor sit amet.
+          li.chat-message__item.send
+            img.chat-message__avatar(src="https://api.adorable.io/avatars/40/xin1chao.png" alt="send.png")
+            ul.chat-message__text
+              li.chat-message__text__item
+                span Lorem ipsum.
+              li.chat-message__text__item
+                span Lorem ipsum dolor sit.
+          li.chat-message__item.send
+            img.chat-message__avatar(src="https://api.adorable.io/avatars/40/xin1chao.png" alt="send.png")
+            ul.chat-message__text
+              li.chat-message__text__item
+                span Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
+              li.chat-message__text__item
+                span Lorem ips
+          li.chat-message__item
+            img.chat-message__avatar(src="https://api.adorable.io/avatars/40/avatar.png" alt="avatar.png")
+            ul.chat-message__text
+              li.chat-message__text__item
+                span Lorem ipsum dolor sit amet.
+              li.chat-message__text__item
+                span Lorem ipsum dolor sit, amet consectetur adipisicing.
+        form.chat-message__form.d-flex.mt-2(action="javascript:")
+          input.form-control(type="text" placeholder="Type a message..." autocomplete="off")
+          button.btn.btn-primary.ml-2 Send

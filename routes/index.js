@@ -1,9 +1,8 @@
-const express = require('express');
-const router = express.Router();
-
+const router = require('express').Router();
+const auth = require('../middleware/authorization');
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index.pug', { title: 'Express' });
+router.get('/', auth, function (req, res, next) {
+  res.render('index.pug', { title: 'Index page' });
 });
 
 module.exports = router;
