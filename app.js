@@ -5,9 +5,16 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const favicon = require('serve-favicon');
-const indexRouter = require('./routes/index');
 
 const app = express();
+
+// Bring in the mongodb
+require('./config/database');
+
+// Bring in the models
+require('./models/Chatroom');
+require('./models/Message');
+require('./models/User');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,7 +34,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.png')))
 
 // Bring in the routes
-app.use('/', indexRouter);
+app.use('/', require('./routes/index'));
+app.use('/user', require('./routes/user'));
+app.use('/chatroom', require('./routes/chatroom'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
