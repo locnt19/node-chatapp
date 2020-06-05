@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-6.mx-auto.mt-5
+        h1.text-center.text-uppercase Login
+        form(method='POST').mt-3
+          .form-group
+            label(for='email') Email
+            input#email.form-control(name='email' type='text')
+          .form-group
+            label(for='password') Password
+            input#password.form-control(name='password' type='password')
+          .form-group.form-check
+            input#exampleCheck1.form-check-input(type='checkbox')
+            label.form-check-label(for='exampleCheck1') Check me out
+          button.btn.btn-primary.btn-block(type='submit') Login
