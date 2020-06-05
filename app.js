@@ -7,6 +7,9 @@ const sassMiddleware = require('node-sass-middleware');
 const favicon = require('serve-favicon');
 
 const app = express();
+const http = require('http').Server(app);
+
+const port = process.env.PORT || '3000';
 
 // Bring in the mongodb
 require('./config/database');
@@ -54,4 +57,6 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+const server = http.listen(port, function () {
+  console.log(`Server listening on port: ${port}`);
+})

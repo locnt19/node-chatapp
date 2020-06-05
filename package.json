@@ -2,8 +2,10 @@
   "name": "node-chatapp",
   "version": "0.0.0",
   "private": true,
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -17,6 +19,7 @@
     "morgan": "^1.10.0",
     "node-sass-middleware": "0.11.0",
     "pug": "^3.0.0",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "socket.io": "^2.3.0"
   }
 }
