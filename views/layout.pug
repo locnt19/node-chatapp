@@ -12,23 +12,26 @@ html
     script(src='/javascripts/toastify.js')
   body
     #server-message.d-none= message
-    .d-flex.justify-content-between
-      ul.nav
-        a.nav-link(href='/') Home
-        a.nav-link(href='/user/register') Register
-        a.nav-link(href='/user/login') Login
-        a.nav-link(href='/chatroom') Chatroom
-      if user
+    if user
+      .d-flex.justify-content-between
+        ul.nav
+          a.nav-link(href='/') Home
+          a.nav-link(href='/chatroom') Chatroom
         ul.nav
           a(href='#').nav-link #{user.name}
           a(href='/user/logout').nav-link Logout
+    else
+      .d-flex.justify-content-center
+        ul.nav
+          a.nav-link(href='/user/register') Register
+          a.nav-link(href='/user/login') Login
     block content
     script(src='/javascripts/scripts.js')
     script.
       (function(){
         var message = document.getElementById('server-message').textContent;
         if(message){
-          console.log('before: %s', message);
+          console.log('raw: %s', message);
           Toastify({
             text: message,
             gravity: 'top',
@@ -41,3 +44,4 @@ html
           }).showToast();
         }
       })();
+    block scripts  
