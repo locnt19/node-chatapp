@@ -47,3 +47,8 @@ exports.login = async (req, res) => {
     res.render('login.pug', { title: 'Login page', message: error });
   }
 }
+
+exports.logout = (req, res) => {
+  res.clearCookie('auth');
+  res.redirect('/');
+}

@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const auth = require('../middleware/authorization');
-/* GET home page. */
+
 router.get('/', auth, function (req, res, next) {
-  res.render('index.pug', { title: 'Index page' });
+  res.render('index.pug', { title: 'Welcome to Chat App real-time' });
 });
 
 module.exports = router;

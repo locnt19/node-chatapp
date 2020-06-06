@@ -1,6 +1,7 @@
 extends layout
 
 block content
-  .container
-    -if(user)
-      h3 Welcome come back, #{user.name}
+  .container.mt-5
+    if user
+      h3 Welcome come back,
+      h5 #{user.name}

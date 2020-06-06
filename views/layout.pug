@@ -21,7 +21,7 @@ html
       if user
         ul.nav
           a(href='#').nav-link #{user.name}
-          a(href='#').nav-link Logout
+          a(href='/user/logout').nav-link Logout
     block content
     script(src='/javascripts/scripts.js')
     script.

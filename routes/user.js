@@ -3,6 +3,7 @@ const userController = require('../controllers/userController');
 
 router.get('/login', userController.renderLoginTemplate);
 router.get('/register', userController.renderRegisterTemplate);
+router.get('/logout', userController.logout);
 router.post('/login', userController.login);
 router.post('/register', userController.register);
 
