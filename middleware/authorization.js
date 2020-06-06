@@ -15,6 +15,7 @@ module.exports = async (req, res, next) => {
       id: user.id,
       name: user.name
     };
+    console.log('====== user logged ======');
     console.log(res.locals.user);
     next()
   } catch (err) {
