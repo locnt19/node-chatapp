@@ -6,24 +6,24 @@ block content
       .col-3
         h4 Online
         ul#chat_user_online.list-group.chat-list__online
-          -for(var i = 0; i < 5; i++)
-            li.list-group-item.p-2
-              .media
-                img.mr-2(src=`https://api.adorable.io/avatars/48/${i}.png` alt="avatar.png")
-                .media-body
-                  span username #{i}
-                  span.chat-user__status.online.float-right.material-icons fiber_manual_record
+          //- -for(var i = 0; i < 5; i++)
+          //-   li.list-group-item.p-2
+          //-     .media
+          //-       img.mr-2(src=`https://api.adorable.io/avatars/48/${i}.png` alt="avatar.png")
+          //-       .media-body
+          //-         span username #{i}
+          //-         span.chat-user__status.online.float-right.material-icons fiber_manual_record
       .col-9
         h4 Chatroom
         #chat_container.border.rounded.p-4
           #chat_room
-            div
-              strong name: &nbsp;
-              span message
+            //- div
+            //-   strong name: &nbsp;
+            //-   span message
           #chat_feedback
-            i
-              strong name &nbsp;
-              span is typing a message...
+            //- i
+            //-   strong name &nbsp;
+            //-   span is typing a message...
         //- ul.chat-message__list.list-unstyled.border.p-4.m-0
           li.chat-message__item
             img.chat-message__avatar(src="https://api.adorable.io/avatars/40/avatar.png" alt="avatar.png")
@@ -72,3 +72,5 @@ block content
         #chat_input.chat-message__form.d-flex.mt-2
           input#chat_message.form-control(type="text" placeholder="Type a message..." autofocus autocomplete="off")
           button#chat_send_message.btn.btn-primary.ml-2 Send
+block scripts
+  script(src='/javascripts/chat.js')
