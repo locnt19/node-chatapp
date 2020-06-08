@@ -41,7 +41,8 @@ exports.login = async (req, res) => {
     // console.log(user);
     if (!user) throw 'Email or password did not match.';
     const token = jwt.sign({ id: user._id, name: user.name }, process.env.SECRETKEY);
-    res.cookie('auth', token, { signed: true, maxAge: 60 * 60 * 1000 });
+    res.cookie('auth', token, { maxAge: 60 * 60 * 1000 });
+    // res.cookie('auth', token, { signed: true, maxAge: 60 * 60 * 1000 });
     res.redirect('/');
   } catch (error) {
     res.render('login.pug', { title: 'Login page', message: error });
